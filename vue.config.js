@@ -11,4 +11,15 @@ module.exports = {
             }
         }
     },
+    devServer: {
+        proxy: {
+            '/api': {
+                target: 'https://www.easy-mock.com/mock/5d52872265efbd1b46d22045',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/api': ''
+                }
+            }
+        }
+    }
 }
