@@ -14,10 +14,10 @@ module.exports = {
     devServer: {
         proxy: {
             '/api': {
-                target: 'https://www.easy-mock.com/mock/5d52872265efbd1b46d22045',
+                target: 'http://39.97.33.178',
                 changeOrigin: true,
                 pathRewrite: {
-                    '^/api': ''
+                    // '^/api': ''
                 }
             }
         }

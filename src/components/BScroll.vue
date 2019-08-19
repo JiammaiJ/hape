@@ -13,10 +13,10 @@
             return {}
         },
         props:{
-            touchEnd:{
+            scrollStart:{
                 // callback 相当于是回调函数,回调父组件touchEnd绑定的方法
                 type:Function,
-                default:function(){console.log('未定义')}
+                default:function(){}
             }
         },
         methods:{},
@@ -27,8 +27,8 @@
                 // 传值方式1：emit发射参数过去,父组件执行scroll匹配的方法
                 this.$emit('scroll',e)
             })
-            scroll.on('touchEnd',(e) =>{
-                this.touchEnd(e);
+            scroll.on('scrollStart',(e) =>{
+                this.scrollStart(e);
             })
         }
     }

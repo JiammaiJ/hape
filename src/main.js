@@ -6,7 +6,7 @@ import store from './store/store'
 import axios from 'axios'
 // mint-ui
 
-import { Swipe, SwipeItem, Search, Header, Tabbar, TabItem } from 'mint-ui';
+import { Swipe, SwipeItem, Search, Header, Tabbar, TabItem, Button } from 'mint-ui';
 // flexible
 import 'lib-flexible/flexible'
 // mui
@@ -19,7 +19,7 @@ Vue.component(SwipeItem.name, SwipeItem)
 Vue.component(Search.name, Search)
 Vue.component(Tabbar.name, Tabbar);
 Vue.component(TabItem.name, TabItem);
-
+Vue.component(Button.name, Button);
 Vue.config.productionTip = false
 Vue.prototype.axios = axios
 Vue.prototype.mui = mui
