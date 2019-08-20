@@ -1,6 +1,5 @@
 <template>
     <div class="nowfire">
-        <Header :tit="tit"/>
         <BScroll>
             <div class="content">
                 <div 
@@ -35,7 +34,7 @@
         data() {
             return {
                 movieList:[],
-                tit:'热映影片'
+                tit:'最近热映'
             }
         },
         components:{
@@ -45,7 +44,6 @@
         methods:{
             getMovieInfo() {
                 this.axios.get('/api/movieOnInfoList?cityId=59').then(res => {
-                    console.log(res.data.data.movieList);
                     this.movieList=res.data.data.movieList;
                 })
             },
@@ -64,6 +62,7 @@
         },
         created() {
             this.getMovieInfo();
+            this.$emit('func2',this.tit);
         }
     }
 </script>>

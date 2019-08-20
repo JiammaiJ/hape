@@ -87,7 +87,7 @@
                     Toast({
                         message:"莫得了",
                         className:"toast",
-                        duration:"100000"
+                        duration:"3000"
                     });
                 }
             }

@@ -5,12 +5,14 @@ export default {
         import ('@/components/movie/Movie.vue'),
     children: [{
             path: 'nowfire',
+            meta: { keepAlive: true },
             component: () =>
                 import ('@/components/movie/NowFire.vue')
         },
         {
             path: 'detail',
             name: 'detail',
+            meta: { keepAlive: false },
             component: () =>
                 import ('@/components/movie/Detail.vue')
         }

@@ -21,7 +21,7 @@
         },
         methods:{},
         mounted() {
-            let scroll = new betterScroll(this.$refs.wrapper,{probeType: 1});
+            let scroll = new betterScroll(this.$refs.wrapper,{probeType: 1,});
             // better-scroll要调用滚动方法,要配置probeType 1:滚动节流,2:不节流
             scroll.on('scroll',(e) =>{
                 // 传值方式1：emit发射参数过去,父组件执行scroll匹配的方法

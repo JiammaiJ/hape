@@ -11,5 +11,6 @@ export default new VueRouter({
         homeRouter,
         movieRouter,
         { path: '/', redirect: '/home' }
+        // test
     ]
 })

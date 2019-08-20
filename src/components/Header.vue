@@ -1,6 +1,6 @@
 <template>
     <div>
-        <header><span class="mui-icon mui-icon-back" @tap="go"></span><h3>{{tit}}</h3></header>
+        <header><span class="mui-icon mui-icon-back" @tap="go"></span><slot></slot></header>
     </div>
 </template>
 
@@ -11,10 +11,7 @@
             return{}
         },
         props:{
-            tit:{
-                type:String,
-                default:'lalala'
-            }
+          
         },
         methods:{
             go() {
