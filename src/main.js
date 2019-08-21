@@ -5,13 +5,18 @@ import store from './store/store'
 // axios
 import axios from 'axios'
 // mint-ui
-
 import { Swipe, SwipeItem, Search, Header, Tabbar, TabItem, Button } from 'mint-ui';
 // flexible
 import 'lib-flexible/flexible'
 // mui
 import './assets/lib/mui/css/mui.css'
 import mui from './assets/lib/mui/js/mui'
+// vant
+import { Popup, Icon, Toast, PullRefresh } from 'vant';
+Vue.use(Popup);
+Vue.use(Icon);
+Vue.use(Toast);
+Vue.use(PullRefresh);
 // mint-ui
 Vue.component(Header.name, Header)
 Vue.component(Swipe.name, Swipe)

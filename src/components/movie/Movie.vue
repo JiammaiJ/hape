@@ -5,7 +5,6 @@
                 <keep-alive>
                     <router-view
                     v-if="$route.meta.keepAlive"
-                    @func="getMovieId" 
                     @func2="changeTit">   
                     </router-view>
                 </keep-alive>
@@ -20,7 +19,7 @@
 </template>
 
 <script>
-    import Header from '../Header'
+    import Header from '../Header';
     export default {
         name:'Movie',
         data() {
@@ -32,14 +31,6 @@
             Header
         },
         methods:{
-            getMovieId(id) {
-                this.$router.push({
-                    name:'detail',
-                    params:{
-                        movieId:id
-                    }
-                })
-            },
             changeTit(t) {
                 this.tit=t;
             }
@@ -55,6 +46,6 @@
         transform:translateX(-100%);
     }
     .v-enter-active,.v-leave-active{
-        transition:all .5s linear;
+        transition:all .3s linear;
     }
 </style>

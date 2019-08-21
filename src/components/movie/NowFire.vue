@@ -9,7 +9,7 @@
                     <div class="movieItem">
                         <div>
                             <img :src="item.img | imgFormat('128.180')" :alt="item.nm"
-                                 @tap="sendMovieId(item.id)"   
+                                 @tap="goDetail(item.id)"   
                             >
                         </div>
                         <div>
@@ -51,8 +51,15 @@
                 console.log(1);
                 this.$router.go(-1);
             },
-            sendMovieId(movieId) {
-                this.$emit('func',movieId);
+            goDetail(movieId) {
+                //this.$emit('func',movieId);
+                this.$router.push({
+                    name:'detail',
+                    params:{
+                        movieId:movieId
+                    }
+                });
+                localStorage.setItem('movieId',JSON.stringify(movieId));
             }
         },
         filters:{

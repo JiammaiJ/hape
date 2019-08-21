@@ -25,30 +25,30 @@
                 </ul>
             </div>
         </div>
-        
+        <CommentBar />
     </div>  
 </template>
 
 <script>
     import { Toast } from 'mint-ui';
     import betterScroll from 'better-scroll';
+    import CommentBar from '../comment/CommentBar';
     export default {
         name:'Detail',
         data() {
             return {
                 tit:'影片详情',
                 movieInfo:[],
-                movieId:this.$route.params.movieId,
+                movieId:this.$route.params.movieId || JSON.parse(localStorage.getItem('movieId')),
                 openFlag:true
             }
         },
         components:{
-           
+           CommentBar
         },
         methods:{
             getMovieDetail() {
-                this.axios.get('/api/detailmovie?movieId=1170287').then(res =>{
-                    
+                this.axios.get('/api/detailmovie?movieId='+this.movieId).then(res =>{ 
                     if(res.data.msg==='ok'&&res.data.status===0&&res.data.data.detailMovie){
                         console.log(res.data.data.detailMovie);
                         this.movieInfo.push(res.data.data.detailMovie);

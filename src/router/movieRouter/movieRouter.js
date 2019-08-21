@@ -15,6 +15,13 @@ export default {
             meta: { keepAlive: false },
             component: () =>
                 import ('@/components/movie/Detail.vue')
+        },
+        {
+            path: 'comment',
+            name: 'comment',
+            meta: { keepAlive: false },
+            component: () =>
+                import ('@/components/comment/MovieComment.vue')
         }
     ]
 }

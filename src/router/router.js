@@ -10,7 +10,12 @@ export default new VueRouter({
     routes: [
         homeRouter,
         movieRouter,
-        { path: '/', redirect: '/home' }
+        { path: '/', redirect: '/home' },
         // test
+        {
+            path: '/a',
+            component: () =>
+                import ('@/components/comment/CommentBar.vue')
+        }
     ]
 })
