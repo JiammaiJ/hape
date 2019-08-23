@@ -1,6 +1,7 @@
 <template>
     <div class="nowfire">
-        <BScroll>
+        <Loading v-if="!isloading"/>
+        <BScroll v-if="isloading">
             <div class="content">
                 <div 
                     v-for="(item,index) in movieList"
@@ -27,28 +28,35 @@
 </template>>
 
 <script>
-    import BScroll from '../BScroll'
-    import Header from '../Header'
+    import BScroll from '../BScroll';
+    import Header from '../Header';
+    import Loading from '../Loading';
     export default {
         name:'NowFire',
         data() {
             return {
                 movieList:[],
-                tit:'最近热映'
+                tit:'最近热映',
+                isloading:false
             }
         },
         components:{
             BScroll,
-            Header
+            Header,
+            Loading
         },
         methods:{
             getMovieInfo() {
                 this.axios.get('/api/movieOnInfoList?cityId=59').then(res => {
                     this.movieList=res.data.data.movieList;
+                    this.$nextTick(() => {
+                        setTimeout(() => {
+                            this.isloading=!this.isloading;
+                        },1200)
+                    })
                 })
             },
             go() {
-                console.log(1);
                 this.$router.go(-1);
             },
             goDetail(movieId) {
@@ -68,8 +76,8 @@
             }            
         },
         created() {
-            this.getMovieInfo();
             this.$emit('func2',this.tit);
+            this.getMovieInfo();
         }
     }
 </script>>

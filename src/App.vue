@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <transition mode="out-in">
+  <div class="app">
+    <transition mode="out-in" name="app">
       <router-view></router-view>
     </transition>
   </div>
@@ -22,4 +22,14 @@
   // .v-enter-active,.v-leave-active{
   //   transition:.5s all linear;
   // }
+
+    .app-enter{
+      transform:translateX(100%);
+    }
+    .app-leave-to{
+      transform:translateX(-100%);
+    }
+    .app-enter-active,.app-leave-active{
+      transition:.5s all ease;
+    }
 </style>

@@ -1,31 +1,34 @@
 <template>
     <div class="detail">
-        <div v-for="(item,index) in movieInfo" :key="index">
-            <div class="movieInfo">
-                <div><img :src="item.img | imgFormat('128.180')"></div>
-                <div><img :src="item.img | imgFormat('128.180')"></div>
-                <div>
-                    <h3>{{item.nm}}</h3>
-                    <p>{{item.enm}}</p>
-                    <p>{{item.sc}}</p>
-                    <p>{{item.cat}}</p>
-                    <p>{{item.src}} / {{item.dur}}</p>
-                    <p>{{item.pubDesc}}</p>
+        <Loading v-if="!isloading" />
+        <div v-if="isloading">
+            <div v-for="(item,index) in movieInfo" :key="index">
+                <div class="movieInfo">
+                    <div><img :src="item.img | imgFormat('128.180')"></div>
+                    <div><img :src="item.img | imgFormat('128.180')"></div>
+                    <div>
+                        <h3>{{item.nm}}</h3>
+                        <p>{{item.enm}}</p>
+                        <p>{{item.sc}}</p>
+                        <p>{{item.cat}}</p>
+                        <p>{{item.src}} / {{item.dur}}</p>
+                        <p>{{item.pubDesc}}</p>
+                    </div>
+                </div>
+                <div :class="{movieIntroduce:true,openall:openFlag}" @tap="openFlag=!openFlag">
+                    {{item.dra}}
+                </div>
+                <div class="movieImg" ref="wrapper"> 
+                    <ul>
+                        <li
+                            v-for="(item,index) in item.photos"
+                            :key="index"
+                        ><img :src="item | imgFormat('128.180')"></li>
+                    </ul>
                 </div>
             </div>
-            <div :class="{movieIntroduce:true,openall:openFlag}" @tap="openFlag=!openFlag">
-                {{item.dra}}
-            </div>
-            <div class="movieImg" ref="wrapper"> 
-                <ul>
-                    <li
-                        v-for="(item,index) in item.photos"
-                        :key="index"
-                    ><img :src="item | imgFormat('128.180')"></li>
-                </ul>
-            </div>
+            <CommentBar/>
         </div>
-        <CommentBar />
     </div>  
 </template>
 
@@ -33,6 +36,7 @@
     import { Toast } from 'mint-ui';
     import betterScroll from 'better-scroll';
     import CommentBar from '../comment/CommentBar';
+    import Loading from '../Loading';
     export default {
         name:'Detail',
         data() {
@@ -40,11 +44,13 @@
                 tit:'影片详情',
                 movieInfo:[],
                 movieId:this.$route.params.movieId || JSON.parse(localStorage.getItem('movieId')),
-                openFlag:true
+                openFlag:true,
+                isloading:false
             }
         },
         components:{
-           CommentBar
+           CommentBar,
+           Loading
         },
         methods:{
             getMovieDetail() {
@@ -53,7 +59,10 @@
                         console.log(res.data.data.detailMovie);
                         this.movieInfo.push(res.data.data.detailMovie);
                         this.$nextTick(() =>{
-                            this.scrollInit();
+                            setTimeout(() => {
+                                this.isloading=!this.isloading;
+                            },1200)
+                            // this.scrollInit();
                         })
                     }else{
                          Toast({
@@ -65,9 +74,9 @@
                 })
             },
             scrollInit() {
-                let bs=new betterScroll(document.querySelector('.movieImg'),{scrollX:true})
-                let liWidth=document.querySelector('.movieImg li')
-                console.log(liWidth)
+                // let bs=new betterScroll(document.querySelector('.movieImg'),{scrollX:true})
+                // let liWidth=document.querySelector('.movieImg li')
+                // console.log(liWidth)
             }
         },
         filters:{

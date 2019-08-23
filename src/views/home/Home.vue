@@ -23,11 +23,6 @@
                             </a>
                         </li>
                     </ul>
-                    <h1>11111111</h1>
-                    <h1>11111111</h1>
-                    <h1>11111111</h1>
-                    <h1>11111111</h1>
-                    <h1>11111111</h1>
                 </div>
             </BScroll>
         </div>
@@ -50,8 +45,8 @@
                            require('@/assets/images/banner5.jpg')
                 ],
                 navImg:[
-                    {img:require('@/assets/images/nav1.png'),tit:"news",path:"/movie"},
-                    {img:require('@/assets/images/nav2.png'),tit:"news"},
+                    {img:require('@/assets/images/nav1.png'),tit:"电影",path:"/movie"},
+                    {img:require('@/assets/images/nav2.png'),tit:"视频",path:"/video"},
                     {img:require('@/assets/images/nav3.png'),tit:"news"},
                     {img:require('@/assets/images/nav4.png'),tit:"news"},
                     {img:require('@/assets/images/nav5.png'),tit:"news"},
