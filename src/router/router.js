@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import homeRouter from './homeRouter/homeRouter'
 import movieRouter from './movieRouter/movieRouter'
 import videoRouter from './videoRouter/videoRouter'
+import shopRouter from './shopRouter/shopRouter'
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -12,17 +13,8 @@ export default new VueRouter({
         homeRouter,
         movieRouter,
         videoRouter,
+        shopRouter,
         { path: '/', redirect: '/home' },
         // test
-        {
-            path: '/a',
-            component: () =>
-                import ('@/components/Loading.vue')
-        },
-        {
-            path: '/page',
-            component: () =>
-                import ('@/views/member/Member.vue')
-        }
     ]
 })

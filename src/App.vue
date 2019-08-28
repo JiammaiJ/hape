@@ -32,4 +32,8 @@
     .app-enter-active,.app-leave-active{
       transition:.5s all ease;
     }
+    .app{
+      width:100%;
+      height:auto;
+    }
 </style>

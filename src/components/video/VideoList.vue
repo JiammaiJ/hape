@@ -11,7 +11,7 @@
                          v-for="(item,index) in list"
                          :key="index"
                     >
-                        <div>
+                        <div @tap="$router.push('/videoplay')">
                             <img :src="item.img">
                             <div>
                                 <div><van-icon name="play-circle-o" />292.2万</div>
