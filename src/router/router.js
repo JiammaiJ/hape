@@ -15,6 +15,16 @@ export default new VueRouter({
         videoRouter,
         shopRouter,
         { path: '/', redirect: '/home' },
+        {
+            path: '/videoplay',
+            component: () =>
+                import ('@/components/video/VideoPlay.vue')
+        },
+        {
+            path: '/shopcart',
+            component: () =>
+                import ('@/views/shopCart/ShopCart.vue')
+        }
         // test
     ]
 })

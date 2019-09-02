@@ -1,6 +1,6 @@
 <template>
     <div>
-        <header><span class="mui-icon mui-icon-back" @tap="go"></span><slot></slot></header>
+        <header><span class="mui-icon mui-icon-back" @click="go"></span><slot></slot></header>
     </div>
 </template>
 
@@ -11,12 +11,15 @@
             return{}
         },
         props:{
-          
+            go:{
+                type:Function,
+                default:() =>{
+                    this.$router.go(-1);
+                }
+            }
         },
         methods:{
-            go() {
-                this.$router.go(-1);
-            }
+            
         }
     }
 </script>

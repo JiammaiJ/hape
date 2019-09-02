@@ -12,13 +12,19 @@ import 'lib-flexible/flexible'
 import './assets/lib/mui/css/mui.css'
 import mui from './assets/lib/mui/js/mui'
 // vant
-import { Popup, Icon, Toast, PullRefresh, Tab, Tabs, Search } from 'vant';
+import { Popup, Icon, Toast, PullRefresh, Tab, Tabs, Search, GoodsAction, GoodsActionIcon, GoodsActionButton, Sku, Switch, Card, SubmitBar, AddressList } from 'vant';
 Vue.use(Popup);
 Vue.use(Icon);
 Vue.use(Toast);
 Vue.use(PullRefresh);
 Vue.use(Tab).use(Tabs);
 Vue.use(Search);
+Vue.use(GoodsAction).use(GoodsActionIcon).use(GoodsActionButton);
+Vue.use(Sku);
+Vue.use(Switch);
+Vue.use(Card);
+Vue.use(SubmitBar);
+Vue.use(AddressList);
 // mint-ui
 Vue.component(Header.name, Header)
 Vue.component(Swipe.name, Swipe)

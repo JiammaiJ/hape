@@ -35,14 +35,14 @@
             return {
                 tit:'精选好物',
                 data:[
-                    {img:require('../../assets/images/s1.webp'),des:'格米莱（GEMILAI）半自动意式咖啡机家用 黑色',pri:230},
-                    {img:require('../../assets/images/s2.webp'),des:'金士顿(Kingston) DDR4 2666 8GB 笔记本内存 骇客神条 Impact系列 ',pri:888},
-                    {img:require('../../assets/images/s3.webp'),des:'海氏（Hauswirt）HC71 咖啡机家用小型 全半自动意式商用蒸汽打奶泡',pri:189},
-                    {img:require('../../assets/images/s4.webp'),des:'华迅仕（Fxunshi） 全自动意式咖啡机家用咖啡壶小型商用奶泡机现磨现煮咖啡 红色款',pri:299},
-                    {img:require('../../assets/images/s5.webp'),des:'格米莱（GEMILAI）半自动意式咖啡机家用 黑色',pri:666},
-                    {img:require('../../assets/images/s6.webp'),des:'格米莱（GEMILAI）半自动意式咖啡机家用 黑色',pri:789},
-                    {img:require('../../assets/images/s5.webp'),des:'格米莱（GEMILAI）半自动意式咖啡机家用 黑色',pri:159},
-                    {img:require('../../assets/images/s6.webp'),des:'格米莱（GEMILAI）半自动意式咖啡机家用 黑色',pri:333}
+                    {img:require('../../assets/images/s1.webp'),des:'格米莱（GEMILAI）半自动意式咖啡机家用 黑色',pri:230.12,id:1},
+                    {img:require('../../assets/images/s2.webp'),des:'金士顿(Kingston) DDR4 2666 8GB 笔记本内存 骇客神条 Impact系列 ',pri:888,id:2},
+                    {img:require('../../assets/images/s3.webp'),des:'海氏（Hauswirt）HC71 咖啡机家用小型 全半自动意式商用蒸汽打奶泡',pri:189,id:3},
+                    {img:require('../../assets/images/s4.webp'),des:'华迅仕（Fxunshi） 全自动意式咖啡机家用咖啡壶小型商用奶泡机现磨现煮咖啡 红色款',pri:299,id:4},
+                    {img:require('../../assets/images/s5.webp'),des:'格米莱（GEMILAI）半自动意式咖啡机家用 黑色',pri:666.5,id:5},
+                    {img:require('../../assets/images/s6.webp'),des:'格米莱（GEMILAI）半自动意式咖啡机家用 黑色',pri:789.8,id:6},
+                    {img:require('../../assets/images/s5.webp'),des:'格米莱（GEMILAI）半自动意式咖啡机家用 黑色',pri:159.9,id:7},
+                    {img:require('../../assets/images/s6.webp'),des:'格米莱（GEMILAI）半自动意式咖啡机家用 黑色',pri:333.33,id:8}
                 ]
             }
         },
@@ -58,6 +58,8 @@
                         goodsInfo:item
                     }
                 })
+                // 存储，避免商品页面刷新路由数据丢失
+                localStorage.setItem('goods',JSON.stringify(item));
             }
         }
     }

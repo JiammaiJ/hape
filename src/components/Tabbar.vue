@@ -1,21 +1,21 @@
 <template>
     <div class="tabbar">
         <mt-tabbar>
-            <mt-tab-item >
+            <mt-tab-item>
                 <img slot="icon" src="@/assets/images/icon1.png">
-                    home
+                    主页
                 </mt-tab-item>
-            <mt-tab-item >
-                <img slot="icon" src="@/assets/images/icon4.png">
-                    page
+            <mt-tab-item>
+                <img slot="icon" src="@/assets/images/icon4.png" @click="goCart">
+                    购物车                    
             </mt-tab-item>
             <mt-tab-item >
                 <img slot="icon" src="@/assets/images/icon2.png">
-                    page
+                    无
             </mt-tab-item>
             <mt-tab-item >
                 <img slot="icon" src="@/assets/images/icon3.png">
-                    page
+                    无
             </mt-tab-item>
         </mt-tabbar>
     </div>
@@ -27,7 +27,14 @@
         data() {
             return {}
         },
-        methods:{}
+        methods:{
+            goCart() {
+                console.log(1);
+                this.$router.push('/shopcart');
+            }
+        },
+        mounted() {
+        }
     }
 </script>
 

@@ -26,33 +26,48 @@
         </div>
         <div class="des">
             <div>
-                <div><span>￥230</span></div>
+                <div><span>￥{{goods.pri}}</span></div>
                 <div>
                     <span><van-icon name="fire-o" />降价提醒</span>
                     <span><van-icon name="like-o" />关注</span>
                 </div>
             </div>
-            <div>金士顿(Kingston) DDR4 2666 8GB 笔记本内存 骇客神条 Impact系列</div>
+            <div>{{goods.des}}</div>
             <div>下单即送送送,斯是陋室,惟吾德馨,苔痕上阶绿,草色入帘青。谈笑有鸿儒，往来无白丁。可以调素琴，阅金经。无丝竹之乱耳，无案牍之劳形。</div>
         </div>
-        <div>
-            
+        <EaseBuy />
+        <Coupon />
+        <Recomment />
+        <ShopBottom :goods="goods" @ballCallback="animateBall"></ShopBottom>
+        <div class="ball" ref="ball">
+
         </div>
     </div>
 </template>
 
 <script>
+    import EaseBuy from './shopCom/EaseBuy'
+    import Coupon from './shopCom/Coupon'
+    import Recomment from './shopCom/Recomment'
+    import ShopBottom from './shopCom/ShopBottom'
     export default {
         name:"ShopInfo",
         data() {
             return {
-                goods:this.$route.params.goodsInfo,
+                show:true,
+                goods:this.$route.params.goodsInfo ||JSON.parse(localStorage.getItem('goods')),
                 bannerImg:[
                     require('../../assets/images/no.png'),
                     require('../../assets/images/no.png')
                 ],
                 topFlag:false
             }
+        },
+        components:{
+            EaseBuy,
+            Coupon,
+            Recomment,
+            ShopBottom
         },
         methods:{
             topScroll() {
@@ -71,6 +86,14 @@
                 }else{
                     return true;
                 }
+            },
+            //add cart callback
+            animateBall() {
+                this.$refs.ball.style.display='block';
+                this.$refs.ball.addEventListener('animationend',() =>{
+                    console.log(111);
+                    this.$refs.ball.style.display="none";
+                },false)
             }
         },
         mounted() {
@@ -140,7 +163,7 @@
             img{
                 display:block;
                 width:100%;
-                height:100%;
+                height:375px;
             }
         }
         .des{
@@ -181,6 +204,38 @@
                 margin:5px 0;
             }
             
+        }
+        .ball{
+            position:fixed;
+            left:50%;
+            top:50%;
+            width:30px;
+            height:30px;
+            border-radius:50%;
+            background-color:red;
+            transform:translate(-50%,-50%);
+            animation: ball 1.5s;
+            display:none;
+        }
+    }
+    @keyframes ball{
+        0%{
+            opacity:1;
+            top:50%
+        }
+        30%{
+            opacity:1;
+            top:55%
+        }
+        60%{
+            top:50%;
+            left:50%;
+            opacity:1;
+        }
+        100%{
+            top:95%;
+            left:34%;
+            opacity:0.5;
         }
     }
 </style>
